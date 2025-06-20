@@ -1,0 +1,43 @@
+{
+  "name": "epub-reader",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@jridgewell/sourcemap-codec": "^1.5.0",
+    "@mui/icons-material": "^5.15.0",
+    "@mui/material": "^5.15.0",
+    "@rollup/plugin-inject": "^5.0.5",
+    "@xmldom/xmldom": "^0.8.10",
+    "mammoth": "^1.8.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.28.0"
+  },
+  "devDependencies": {
+    "@esbuild-plugins/node-modules-polyfill": "^0.2.2",
+    "@eslint/js": "^9.13.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.3",
+    "eslint": "^9.13.0",
+    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.14",
+    "globals": "^15.11.0",
+    "vite": "^6.3.5"
+  },
+  "resolutions": {
+    "sourcemap-codec": "npm:@jridgewell/sourcemap-codec@^1.5.0",
+    "rollup-plugin-inject": "npm:@rollup/plugin-inject@^5.0.5",
+    "@xmldom/xmldom": "^0.8.10"
+  }
+}

@@ -206,16 +206,19 @@ const { t } = useTranslation();
             row
             value={state.language}
             onChange={(e) => setLanguage(e.target.value)}
+            aria-labelledby="language-label"
           >
             <FormControlLabel 
               value="en" 
-              control={<Radio />} 
-              label={t('english')} 
+              control={<Radio id="english-radio"/>} 
+              label={t('english')}
+              htmlFor="english-radio" 
             />
             <FormControlLabel 
               value="ru" 
-              control={<Radio />} 
-              label={t('russian')} 
+              control={<Radio id="russian-radio" />} 
+              label={t('russian')}
+              htmlFor="russian-radio" 
             />
           </RadioGroup>
         </FormControl>
@@ -324,8 +327,9 @@ const { t } = useTranslation();
             <Grid item xs={12} md={6}>
               <TextField
                 fullWidth
-                label={t("id")}
+                id="new-book-id"
                 name="id"
+                label={t("id")}
                 value={newBook.id}
                 onChange={handleAddBookInput}
                 error={!!errors.id}
@@ -335,6 +339,7 @@ const { t } = useTranslation();
               
               <TextField
                 fullWidth
+                id="new-book-title"
                 label={t("title")}
                 name="title"
                 value={newBook.title}
@@ -346,6 +351,7 @@ const { t } = useTranslation();
               
               <TextField
                 fullWidth
+                id="new-book-author"
                 label={t("author")}
                 name="author"
                 value={newBook.author}
@@ -357,6 +363,7 @@ const { t } = useTranslation();
               
               <TextField
                 fullWidth
+                id="new-book-year"
                 label={t("year")}
                 name="year"
                 value={newBook.year}
@@ -366,6 +373,7 @@ const { t } = useTranslation();
               
               <TextField
                 fullWidth
+                id="new-book-isbn"
                 label="ISBN"
                 name="isbn"
                 value={newBook.isbn}
@@ -377,6 +385,7 @@ const { t } = useTranslation();
             <Grid item xs={12} md={6}>
               <TextField
                 fullWidth
+                id="new-book-description"
                 label={t("description")}
                 name="description"
                 value={newBook.description}
@@ -387,10 +396,12 @@ const { t } = useTranslation();
               />
               
               <FormControl fullWidth margin="normal" error={!!errors.cover}>
-                <InputLabel shrink>{t("coverimage")}</InputLabel>
+                <InputLabel shrink htmlFor="cover-upload">{t("coverimage")}</InputLabel>
                 <Box mt={2}>
                   <Input
                     type="file"
+                    id="cover-upload"
+                    name="cover"
                     accept="image/*"
                     onChange={(e) => handleFileUpload(e, 'cover')}
                     fullWidth
@@ -407,10 +418,12 @@ const { t } = useTranslation();
               </FormControl>
               
               <FormControl fullWidth margin="normal" error={!!errors.file}>
-                <InputLabel shrink>{t("bookcontent")}</InputLabel>
+                <InputLabel shrink htmlFor="file-upload">{t("bookcontent")}</InputLabel>
                 <Box mt={2}>
                   <Input
                     type="file"
+                    id="file-upload"
+                    name="file"
                     accept=".docx,.txt"
                     onChange={(e) => handleFileUpload(e, 'file')}
                     fullWidth

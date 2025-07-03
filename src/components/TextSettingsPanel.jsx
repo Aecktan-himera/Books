@@ -1,14 +1,20 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useId } from 'react';
 import { Box, RadioGroup, FormControl, FormLabel, FormControlLabel, Radio, Select, MenuItem, Switch } from '@mui/material';
 import useTranslation from '../hooks/useTranslation';
 
 export default function TextSettingsPanel({ settings, onChange }) {
   const { t } = useTranslation();
+
+  const colorId = useId();
+  const sizeId = useId();
+  const fontWeightId = useId();
+
   return (
     <Box sx={{ display: 'flex', gap: 4, mb: 2 }}>
       <FormControl>
-        <FormLabel>{t("textColor")}:</FormLabel>
+        <FormLabel htmlFor={colorId}>{t("textColor")}</FormLabel>
         <RadioGroup
+          id={colorId}
           row
           value={settings.color}
           onChange={(e) => onChange('color', e.target.value)}
@@ -20,23 +26,25 @@ export default function TextSettingsPanel({ settings, onChange }) {
       </FormControl>
 
       <FormControl>
-        <FormLabel>{t("textSize")}:</FormLabel>
+        <FormLabel htmlFor={sizeId}>{t("textSize")}</FormLabel>
         <Select
+          id={sizeId}
           value={settings.size}
           onChange={(e) => onChange('size', e.target.value)}
           sx={{ minWidth: 120 }}
         >
-          <MenuItem value="small">{t('small')}</MenuItem>
-          <MenuItem value="medium">{t('medium')}</MenuItem>
-          <MenuItem value="large">{t('large')}</MenuItem>
+          <MenuItem value="small" id="size-small">{t('small')}</MenuItem>
+          <MenuItem value="medium" id="size-medium">{t('medium')}</MenuItem>
+          <MenuItem value="large" id="size-large">{t('large')}</MenuItem>
         </Select>
       </FormControl>
 
       <FormControl>
-        <FormLabel>{t("fontWeight")}:</FormLabel>
+        <FormLabel htmlFor={fontWeightId}>{t("fontWeight")}</FormLabel>
         <FormControlLabel
           control={
             <Switch
+              id={fontWeightId}
               checked={settings.bold}
               onChange={(e) => onChange('bold', e.target.checked)}
             />

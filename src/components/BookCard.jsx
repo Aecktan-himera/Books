@@ -10,40 +10,40 @@ function BookCard({ book }) {
   const isFavorite = state.favorites.includes(book.id);
 
   return (
-    <Card sx={{ 
-      height: '100%', 
-      display: 'flex', 
+    <Card sx={{
+      height: '100%',
+      display: 'flex',
       flexDirection: 'column',
     }}>
       {/* Измененный компонент CardMedia */}
-      <Box sx={{ 
+      <Box sx={{
         minHeight: 150,
-        maxWidth: 400, 
-        display: 'flex', 
-        alignItems: 'center', 
+        maxWidth: 400,
+        display: 'flex',
+        alignItems: 'center',
         justifyContent: 'center',
         overflow: 'hidden',
         backgroundColor: theme => theme.palette.grey[100]
       }}>
-        <img 
-          src={book.cover || '/placeholder-book-cover.jpg'} 
-          alt={book.title} 
-          style={{ 
+        <img
+          src={book.cover || '/placeholder-book-cover.jpg'}
+          alt={book.title}
+          style={{
             maxHeight: '100%',
             maxWidth: '100%',
             objectFit: 'contain'
           }}
         />
       </Box>
-      
+
       <CardContent sx={{ flexGrow: 1 }}>
-        <Typography 
-          gutterBottom 
-          variant="h6" 
-          component={Link} 
+        <Typography
+          gutterBottom
+          variant="h6"
+          component={Link}
           to={`/book/${book.id}`}
-          sx={{ 
-            textDecoration: 'none', 
+          sx={{
+            textDecoration: 'none',
             color: 'inherit',
             display: 'block',
             '&:hover': {
@@ -58,16 +58,20 @@ function BookCard({ book }) {
         </Typography>
       </CardContent>
       <Box sx={{ p: 1, display: 'flex', justifyContent: 'flex-end' }}>
-        <Tooltip 
+        <Tooltip
           title={isFavorite ? t('removeFromFavorites') : t('addToFavorites')}
-        ></Tooltip>
-        <IconButton 
-          onClick={() => toggleFavorite(book.id)}
-          aria-label={isFavorite ? t('removeFromFavorites') : t('addToFavorites')}
-          color={isFavorite ? "error" : "default"}
         >
-          {isFavorite ? <Favorite /> : <FavoriteBorder />}
-        </IconButton>
+          <span>
+            <IconButton
+              id={`fav-button-${book.id}`}
+              onClick={() => toggleFavorite(book.id)}
+              aria-label={isFavorite ? t('removeFromFavorites') : t('addToFavorites')}
+              color={isFavorite ? "error" : "default"}
+            >
+              {isFavorite ? <Favorite /> : <FavoriteBorder />}
+            </IconButton>
+          </span>
+        </Tooltip>
       </Box>
     </Card>
   );

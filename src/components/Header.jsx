@@ -59,10 +59,10 @@ const handleLanguageMenuOpen = (event) => {
             open={Boolean(anchorEl)}
             onClose={handleLanguageMenuClose}
           >
-            <MenuItem onClick={() => handleLanguageChange('en')}>
+            <MenuItem onClick={() => handleLanguageChange('en')} id="lang-en">
               {t('english')} {state.language === 'en' && '✓'}
             </MenuItem>
-            <MenuItem onClick={() => handleLanguageChange('ru')}>
+            <MenuItem onClick={() => handleLanguageChange('ru')} id="lang-ru">
               {t('russian')} {state.language === 'ru' && '✓'}
             </MenuItem>
           </Menu>

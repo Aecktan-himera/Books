@@ -1,4 +1,4 @@
- Book Collection App
+Book Collection App
 
 Приложение для управления коллекцией книг с возможностью чтения, настройки отображения текста и работы с избранным.
 
@@ -15,6 +15,7 @@
 Технологии
 
 - React 18
+- TypeScript
 - Material-UI (MUI)
 - React Router 6
 - Context API для управления состоянием
